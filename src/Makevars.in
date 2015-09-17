@@ -16,10 +16,20 @@ BUILD_LIBS = $(SHLIB) @EXT_LIBS@
 
 ### Start making here.
 all: $(BUILD_LIBS)
+	@echo "GET_PKG_CONFIG = @GET_PKG_CONFIG@" >> Makeconf
+	@echo "GET_SYSTEM_ZMQ = @GET_SYSTEM_ZMQ@" >> Makeconf
+	@echo "PKG_CONFIG = @PKG_CONFIG@" >> Makeconf
+	@echo "SYSTEM_ZMQ_INCLUDEDIR = @SYSTEM_ZMQ_INCLUDEDIR@" >> Makeconf
+	@echo "SYSTEM_ZMQ_LIBDIR = @SYSTEM_ZMQ_LIBDIR@" >> Makeconf
+	@echo "ENABLE_INTERNAL_ZMQ = @ENABLE_INTERNAL_ZMQ@" >> Makeconf
+	@echo "INTERNAL_ZMQ_INCLUDEDIR = @INTERNAL_ZMQ_INCLUDEDIR@" >> Makeconf
+	@echo "INTERNAL_ZMQ_LIBDIR = @INTERNAL_ZMQ_LIBDIR@" >> Makeconf
+	@echo "EXTERNAL_ZMQ_INCLUDE = @EXTERNAL_ZMQ_INCLUDE@" >> Makeconf
+	@echo "EXTERNAL_ZMQ_LDFLAGS = @EXTERNAL_ZMQ_LDFLAGS@" >> Makeconf
 	@echo "ZMQ_INCLUDE = @ZMQ_INCLUDE@" >> Makeconf
 	@echo "ZMQ_LDFLAGS = @ZMQ_LDFLAGS@" >> Makeconf
-	@echo "ZMQ_POLLER = @ZMQ_POLLER@" >> Makeconf
 	@echo "EXT_LIBS = @EXT_LIBS@" >> Makeconf
+	@echo "ZMQ_POLLER = @ZMQ_POLLER@" >> Makeconf
 	@echo "PKG_CPPFLAGS = $(PKG_CPPFLAGS)" >> Makeconf
 	@echo "PKG_CFLAGS = $(PKG_CFLAGS)" >> Makeconf
 	@echo "PKG_CXXFLAGS = $(PKG_CXXFLAGS)" >> Makeconf
@@ -38,7 +48,8 @@ $(R_ZMQ):
 	@sed -e "s#@CXX@#${CXX}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
 	@sed -e "s#@CXXFLAGS@#${CXXFLAGS}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
 	( sh ./chmod_zmq.inc; cd zmqsrc; sh ../build_zmq )
-	( cp ./zmq/lib/libzmq$(SHLIB_EXT) ./libzmq$(SHLIB_EXT) )
+	# ( cp ./zmq/lib/libzmq$(SHLIB_EXT) ./libzmq$(SHLIB_EXT) )
+	( cp ./zmq/lib/libzmq* ./ )
 
 clean:
 	@rm -rf *.o *.d *.rc *.so* *.dylib *.dll *.a *.lib \
