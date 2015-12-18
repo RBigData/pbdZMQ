@@ -1,41 +1,49 @@
 Package: pbdZMQ
-Version: 0.1-1
-Date: 2015-09-14
+Version: 0.2-0
+Date: 2015-11-24
 Title: Programming with Big Data -- Interface to ZeroMQ
 Authors@R: c(person("Wei-Chen", "Chen", role = c("aut", "cre"), email =
         "wccsnow@gmail.com"),
         person("Drew", "Schmidt", role = "aut"),
+        person("Christian", "Heckendorf", role = "aut", comment = "file transfer"),
+        person("George", "Ostrouchov", role = "aut", comment = "Mac OSX"),
         person("Whit", "Armstrong", role = "ctb", comment = "some functions
-                are modified from the rzmq for backward compatibility"),
+                are modified from the rzmq package for backwards compatibility"),
         person("Brian", "Ripley", role = "ctb",
-               comment = "C code of shellexec"),
+               comment = "C code of shellexec, and Solaris"),
         person("R Core team", role = "ctb", comment = "some functions are
                 modified from the R source code"))
 Depends: R (>= 3.0.0)
+Imports: R6
 LazyLoad: yes
 LazyData: yes
 Copyright: See files AUTHORS, COPYING, COPYING.LESSER, and MAINTAINERS
         in pbdZMQ/inst/zmq_copyright/ for the ZeroMQ source files in
         src/zmq_src/ which are under GPL-3.
-Description: Providing high level R wrapper functions to utilize
-        ZeroMQ C API functions in detail manners. pbdZMQ mainly focuses on
-        client/servers programming framework in an interaction style. A
-        minimal ZeroMQ library 4.1.0 rc1 is built and linked within pbdZMQ
-        if no external ZeroMQ library is provided. A few compatible wrapper
-        functions to rzmq are also provided.
+Description: 'ZeroMQ' is a well-known library for high-performance
+    asynchronous messaging in scalable, distributed applications.  This
+    package provides high level R wrapper functions to easily utilize
+    'ZeroMQ'. We mainly focus on interactive client/server programming
+    frameworks. For convenience, a minimal 'ZeroMQ' library (4.1.0 rc1)
+    is shipped with 'pbdZMQ', which can be used if no system installation
+    of 'ZeroMQ' is available.  A few wrapper functions compatible with
+    'rzmq' are also provided.
 SystemRequirements: Linux, Mac OSX, and Windows, or ZeroMQ library >=
-        4.0.4.
+        4.0.4. Solaris 10 needs ZeroMQ library 4.0.7 and OpenCSW.
 License: GPL-3
 URL: http://r-pbd.org/
 BugReports: http://group.r-pbd.org/
 MailingList: Please send questions and comments regarding pbdR to
         RBigData@gmail.com
 NeedsCompilation: yes
-Packaged: 2015-09-22 02:12:11 UTC; snoweye
+ByteCompile: yes
+Packaged: 2015-12-16 13:28:02 UTC; snoweye
 Author: Wei-Chen Chen [aut, cre],
   Drew Schmidt [aut],
-  Whit Armstrong [ctb] (some functions are modified from the rzmq for
-    backward compatibility),
-  Brian Ripley [ctb] (C code of shellexec),
+  Christian Heckendorf [aut] (file transfer),
+  George Ostrouchov [aut] (Mac OSX),
+  Whit Armstrong [ctb] (some functions are modified from the rzmq package
+    for backwards compatibility),
+  Brian Ripley [ctb] (C code of shellexec, and Solaris),
   R Core team [ctb] (some functions are modified from the R source code)
 Maintainer: Wei-Chen Chen <wccsnow@gmail.com>

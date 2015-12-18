@@ -14,7 +14,8 @@
   }
 
   ### Load ZMQ.
-  files <- c("libzmq.so", "libzmq.so.dSYM", "libzmq.dylib", "libzmq.dll")
+  files <- c("libzmq.so", "libzmq.so.dSYM", "libzmq.dylib", "libzmq.4.dylib",
+             "libzmq.dll")
   for(i.file in files){
     fn <- paste(dn, i.file, sep = "")
     if(file.exists(fn)){
@@ -28,6 +29,10 @@
 
   ### Load "pbdZMQ.so".
   library.dynam("pbdZMQ", pkgname, libname)
+
+  ### Preload to global environment.
+  invisible(eval(parse(text = "pbdZMQ:::.zmqopt_init()")))
+
   invisible()
 } # End of .onLoad().
 
@@ -51,7 +56,8 @@
   }
 
   ### Unload ZMQ.
-  files <- c("libzmq.so", "libzmq.so.dSYM", "libzmq.dylib", "libzmq.dll")
+  files <- c("libzmq.so", "libzmq.so.dSYM", "libzmq.dylib", "libzmq.4.dylib",
+             "libzmq.dll")
   for(i.file in files){
     fn <- paste(dn, i.file, sep = "")
     if(file.exists(fn)){

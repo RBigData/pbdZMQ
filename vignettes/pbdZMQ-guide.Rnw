@@ -2,7 +2,7 @@
 
 \documentclass[article,shortnames,nojss]{jss}
 
-\newcommand{\mpiversion}{0.1-0}
+\newcommand{\zmqversion}{0.1-0}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% declarations for jss.cls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,18 +21,18 @@ $^1$pbdR Core Team \\
 $^2$Business Analytics and Statistics, \\
 University of Tennessee, \\
 Knoxville, TN, USA \\
-\\
 %\\
 %\\
 %\today
 }
-\title{A Quick Guide for the \pkg{pbdZMQ} Package {\small (Ver. \mpiversion)}}
+%\title{A Quick Guide for the \pkg{pbdZMQ} Package {\small (Ver. \mpiversion)}}
+\title{A Quick Guide for the \pkg{pbdZMQ} Package}
 
 
 %% for pretty printing and a nice hypersummary also set:
 \Plainauthor{Wei-Chen Chen, Drew Schmidt} %% comma-separated
-\Plaintitle{Quick Guide for pbdZMQ (Ver. \mpiversion)} %% without formatting
-\Shorttitle{Quick Guide for pbdZMQ (Ver. \mpiversion)} %% a short title (if necessary)
+\Plaintitle{Quick Guide for pbdZMQ} %% without formatting
+\Shorttitle{Quick Guide for pbdZMQ} %% a short title (if necessary)
 
 %% an abstract and keywords
 %\Abstract{
@@ -93,6 +93,9 @@ Knoxville, TN, USA \\
 \input{./pbdZMQ-include/02-installation}
 \input{./pbdZMQ-include/03-example}
 \input{./pbdZMQ-include/04-backward}
+\input{./pbdZMQ-include/05-cs}
+\input{./pbdZMQ-include/06-solaris}
+\input{./pbdZMQ-include/99-faq}
 
 \newpage
 \phantomsection

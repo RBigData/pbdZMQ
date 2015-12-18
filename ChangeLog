@@ -1,4 +1,53 @@
-2015-09-22:
+2015-12-15:
+  * Add vignettes for Solaris.
+
+2015-12-10:
+  * Solaris works with external ZeroMQ 4.0.7.
+
+2015-11-22:
+  * Added verbose option to zmq.sendfile() and zmq.recvfile().
+  * Change zmq.sendfile()/zmq.recvfile() to use PUSH/PULL.
+
+2015-11-20:
+  * Added zmq.sendfile() and zmq.recvfile().
+
+2015-11-14: Ver. 0.2-0
+  * Fix the RPATH problem in  Mac OSX 10.10 Yosemite by using otool and
+    install_name_tool after shared libraries are installed in
+    "src/install.libs.R".
+
+2015-11-03: Ver. 0.2-0
+  * Simplify global environment.
+
+2015-10-24: Ver. 0.2-0
+  * Change to common environment, but this will create masking, overwritting,
+    and texting problems when other pbdR pacakges are loading.
+  * Change again to .pbd_env, .zmqopt_set(), .zmqopt_get(), and
+    .zmqopt_init() with huge options rewritting.
+
+2015-10-08:
+  * Expanded PyZMQ-like interface.
+  * Added address and port validation utilities.
+
+2015-10-02:
+  * Take off -rpath $(libdir) from line 598 in
+    "src/zmqsrc/src/Makefile.in". (fail)
+
+2015-10-01:
+  * Added PyZMQ-like R6 interface.
+  * Change to roxygen2.
+  * Add vignettes.
+
+2015-09-30:
+  * Converted manual to roxygen.
+  * Added significant examples to the vignette.
+  * Enhanced the README.
+  * Cleaned up DESCRIPTION.
+
+2015-09-26:
+  * Give Solaris another try.
+
+2015-09-22: Ver. 0.1-1
   * Fix src_Makefile (windows).
 
 2015-09-15:
