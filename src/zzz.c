@@ -14,6 +14,7 @@ static const R_CallMethodDef callMethods[] = {
 	{"R_zmq_bind", (DL_FUNC) &R_zmq_bind, 2},
 	{"R_zmq_connect", (DL_FUNC) &R_zmq_connect, 2},
 	{"R_zmq_setsockopt", (DL_FUNC) &R_zmq_setsockopt, 4},
+	{"R_zmq_getsockopt", (DL_FUNC) &R_zmq_getsockopt, 4},
 
 	/* In file "R_zmq_message.c". */
 	{"R_zmq_msg_init", (DL_FUNC) &R_zmq_msg_init, 0},
@@ -33,6 +34,12 @@ static const R_CallMethodDef callMethods[] = {
 
 	/* In file "shellexec_wcc.c". */
 	{"shellexec_wcc", (DL_FUNC) &shellexec_wcc, 2},
+
+	/* In file "R_zmq_poll.c". */
+	{"R_zmq_poll", (DL_FUNC) &R_zmq_poll, 3},
+	{"R_zmq_poll_free", (DL_FUNC) &R_zmq_poll_free, 0},
+	{"R_zmq_poll_length", (DL_FUNC) &R_zmq_poll_length, 0},
+	{"R_zmq_poll_get_revents", (DL_FUNC) &R_zmq_poll_get_revents, 1},
 
 	/* Finish R_CallMethodDef. */
 	{NULL, NULL, 0}
