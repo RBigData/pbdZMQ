@@ -1,6 +1,5 @@
 #include "R_zmq.h"
 
-
 /* Internal. */
 SEXP AsInt(int C_x){
 	SEXP R_x;

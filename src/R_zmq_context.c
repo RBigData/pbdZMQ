@@ -13,7 +13,7 @@ SEXP R_zmq_ctx_new(){
 		// R_RegisterCFinalizerEx(R_context, ctx_Finalizer, TRUE);
 		UNPROTECT(1);
 	} else{
-		warning("R_zmq_ctx_new: R_context is not available.\n");
+		Rprintf("R_zmq_ctx_new: R_context is not available.\n");
 	}
 	return(R_context);
 } /* End of Rzmq_ctx_new(). */
@@ -29,7 +29,7 @@ SEXP R_zmq_ctx_destroy(SEXP R_context){
 	C_ret = zmq_ctx_destroy(C_context);
 	if(C_ret == -1){
 		C_errno = zmq_errno();
-		warning("R_zmq_ctx_destroy errno: %d strerror: %s\n",
+		Rprintf("R_zmq_ctx_destroy errno: %d strerror: %s\n",
 			C_errno, zmq_strerror(C_errno));
 	}
 	return(AsInt(C_ret));

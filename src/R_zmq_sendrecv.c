@@ -11,7 +11,7 @@ SEXP R_zmq_send(SEXP R_socket, void *C_buf, SEXP R_len, SEXP R_flags){
 		C_ret = zmq_send(C_socket, C_buf, C_len, C_flags);
 		if(C_ret == -1){
 			C_errno = zmq_errno();
-			warning("R_zmq_send errno: %d strerror: %s\n",
+			Rprintf("R_zmq_send errno: %d strerror: %s\n",
 				C_errno, zmq_strerror(C_errno));
 		}
 	} else{
@@ -39,7 +39,7 @@ int R_zmq_recv(SEXP R_socket, void *C_buf, SEXP R_len, SEXP R_flags){
 		C_ret = zmq_recv(C_socket, C_buf, C_len, C_flags);
 		if(C_ret == -1){
 			C_errno = zmq_errno();
-			warning("R_zmq_recv errno: %d strerror: %s\n",
+			Rprintf("R_zmq_recv errno: %d strerror: %s\n",
 				C_errno, zmq_strerror(C_errno));
 		}
 	} else{
