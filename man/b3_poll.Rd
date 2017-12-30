@@ -4,14 +4,11 @@
 \alias{Poll Functions}
 \alias{zmq.poll}
 \alias{zmq.poll.free}
-\alias{zmq.poll.get.revents}
-\alias{zmq.poll.interrupt}
 \alias{zmq.poll.length}
+\alias{zmq.poll.get.revents}
 \title{Poll Functions}
 \usage{
 zmq.poll(socket, type, timeout = -1L, MC = .pbd_env$ZMQ.MC)
-
-zmq.poll.interrupt(socket, type, timeout = -1L, MC = .pbd_env$ZMQ.MC)
 
 zmq.poll.free()
 
@@ -52,15 +49,12 @@ See \code{\link{ZMQ.PO}()} for the possible values of
 \code{type}. ZMQ defines several poll types and utilize
 them to poll multiple sockets.
 
-\code{zmq.poll.interrupt()} call \code{zmq.poll()} and raise an interrupt
-signal if \code{ret[1] == -1} and \code{ret[2] == 4}.
-
 \code{zmq.poll.free()} frees ZMQ poll structure memory internally.
 
 \code{zmq.poll.length()} obtains total numbers of ZMQ poll items.
 
 \code{zmq.poll.get.revents()} obtains revent types from ZMQ poll item by
-the input index..
+the input index.
 }
 \examples{
 \dontrun{
@@ -125,9 +119,6 @@ zmq.ctx.destroy(context)
 }
 
 }
-\author{
-Wei-Chen Chen \email{wccsnow@gmail.com}.
-}
 \references{
 ZeroMQ/4.1.0 API Reference:
 \url{http://api.zeromq.org/4-1:_start}
@@ -137,5 +128,7 @@ Programming with Big Data in R Website: \url{http://r-pbd.org/}
 \seealso{
 \code{\link{zmq.recv}()}, \code{\link{zmq.send}()}.
 }
+\author{
+Wei-Chen Chen \email{wccsnow@gmail.com}.
+}
 \keyword{programming}
-

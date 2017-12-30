@@ -1,5 +1,44 @@
+2017-12-29: Ver 0.3-0
+  * A better script for osx is made: overwrite both pbdZMQ.so and libzmq.*.dylib.
+  * Remove some initial scripts needed by osx.
+  * pbdZMQ.so is now exported too.
+  * Appveyor builds are added for windows (i386 and x64).
+
+2017-12-26: Ver 0.3-0
+  * Modify and rearrange "install.libs.R" and "zzz.r.in".
+
+2017-12-25: Ver 0.3-0
+  * Add libzmq.5.dylib for Mac OSX.
+  * Add test.load.zmq().
+
+2017-12-24: Ver 0.3-0
+  * Change to ZeroMQ 4.2.2 library.
+  * Export ZerMQ flags (CPPFLAGS and LDFLAGS).
+  * Add zzz.cpp in zmqsrc/src/ and relevance.
+  * Test with external ZeroMQ library.
+  * Add vignettes.
+  * Add C++ header files to ZeroMQ library.
+
+2017-10-01: Ver 0.2-7
+  * Add check eintr to poller.
+  * Fix a CRAN warning as
+    R_zmq_utility.c:34:24: warning: ‘sprintf’ writing a terminating nul past
+    the end of the destination [-Wformat-overflow=]
+
+2017-07-05: Ver 0.2-7
+  * Retire R6/pyzmq-like bindings.
+
+2017-05-14: Ver 0.2-6
+  * Add dynamic symbol registration.
+  * Add zzz.cpp in zmqsrc/src/ and relevance.
+
+2017-01-11: Ver 0.2-6
+  * Move remoter back to Enhances because sodium does not work on CRAN Solaris.
+  * Add a fake `ls()` to avoid `rm(list = ls(all.names = TRUE)` to delete any
+    hidden pbd objects mainly `.pbd_env` and `.pbdenv`.
+
 2016-12-31: Ver 0.2-6
-  * Move pbdRPC and remoters to Suggests.
+  * Move pbdRPC and remoter to Suggests.
 
 2016-12-17: Ver 0.2-5
   * Change web address.

@@ -4,12 +4,13 @@
 \alias{ZMQ Control Functions}
 \alias{ZMQ.MC}
 \alias{ZMQ.PO}
-\alias{ZMQ.SO}
 \alias{ZMQ.SR}
+\alias{ZMQ.SO}
 \alias{ZMQ.ST}
 \title{Sets of controls in pbdZMQ.}
 \usage{
-ZMQ.MC(warning.at.error = TRUE, stop.at.error = FALSE)
+ZMQ.MC(warning.at.error = TRUE, stop.at.error = FALSE,
+  check.eintr = FALSE)
 
 ZMQ.PO(POLLIN = 1L, POLLOUT = 2L, POLLERR = 4L)
 
@@ -40,8 +41,8 @@ ZMQ.ST(PAIR = 0L, PUB = 1L, SUB = 2L, REQ = 3L, REP = 4L,
   XSUB = 10L, STREAM = 11L)
 }
 \arguments{
-\item{warning.at.error, stop.at.error}{Logical; if there is a messaging error, should there be an
-R warning/error.}
+\item{warning.at.error, stop.at.error, check.eintr}{Logical; if there is a messaging error, should there be an
+R warning/error, or check user interrupt events.}
 
 \item{POLLIN, POLLOUT, POLLERR}{ZMQ poll options; see zmq.h for details.}
 
@@ -54,9 +55,6 @@ R warning/error.}
 \description{
 These sets of controls are used to provide default values in this package.
 }
-\author{
-Wei-Chen Chen \email{wccsnow@gmail.com}.
-}
 \references{
 ZeroMQ/4.1.0 API Reference:
 \url{http://api.zeromq.org/4-1:_start}
@@ -66,6 +64,8 @@ Programming with Big Data in R Website: \url{http://r-pbd.org/}
 \seealso{
 \code{\link{.pbd_env}}.
 }
+\author{
+Wei-Chen Chen \email{wccsnow@gmail.com}.
+}
 \keyword{global}
 \keyword{variables}
-

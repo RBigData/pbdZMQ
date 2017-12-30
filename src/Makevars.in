@@ -10,7 +10,7 @@ PKG_LIBS = @ZMQ_LDFLAGS@
 ### Setup R source code and objects.
 R_OBJS = R_zmq_context.o R_zmq_socket.o R_zmq_sendrecv.o R_zmq_utility.o \
          R_zmq_message.o R_zmq_transfer.o shellexec_wcc.o \
-         R_zmq_poll.o R_zmq_poll2.o \
+         R_zmq_poll.o \
          zzz.o
 R_ZMQ = libzmq$(SHLIB_EXT)
 OBJECTS = $(R_OBJS)
@@ -46,10 +46,11 @@ $(R_ZMQ):
 	@sed -e "s#@CC@#${CC}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
 	@sed -e "s#@CFLAGS@#${CFLAGS}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
 	@sed -e "s#@LDFLAGS@#${LDFLAGS}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
-	@sed -e "s#@CPPFLAGS@#${CPPFLAGS}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
+	@sed -e "s#@CPPFLAGS@#${ALL_CPPFLAGS}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
 	@sed -e "s#@CXX@#${CXX}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
 	@sed -e "s#@CXXFLAGS@#${CXXFLAGS}#g" build_zmq > build_zmq.tmp && mv -f build_zmq.tmp build_zmq
 	( sh ./chmod_zmq.inc; cd zmqsrc; sh ../build_zmq )
+	mv ./zmqsrc/Makefile ./zmqsrc/Makefile.done
 	# ( cp ./zmq/lib/libzmq$(SHLIB_EXT) ./libzmq$(SHLIB_EXT) )
 	( cp ./zmq/lib/libzmq* ./ )
 
