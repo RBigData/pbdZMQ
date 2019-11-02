@@ -114,7 +114,7 @@ NULL
 #' @rdname a1_socket
 #' @export
 zmq.socket <- function(ctx, type = .pbd_env$ZMQ.ST$REP){
-  ret <- .Call("R_zmq_socket", ctx, type, PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_socket", ctx, type)
   attr(ret, "type") = type
   ### Users are responsible to take care free and gc.
   # reg.finalizer(ret, zmq.close, TRUE)
@@ -126,7 +126,7 @@ zmq.socket <- function(ctx, type = .pbd_env$ZMQ.ST$REP){
 #' @rdname a1_socket
 #' @export
 zmq.close <- function(socket){
-  ret <- .Call("R_zmq_close", socket, PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_close", socket)
   invisible(ret)
 }
 
@@ -135,7 +135,7 @@ zmq.close <- function(socket){
 #' @rdname a1_socket
 #' @export
 zmq.bind <- function(socket, endpoint, MC = .pbd_env$ZMQ.MC){
-  ret <- .Call("R_zmq_bind", socket, endpoint, PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_bind", socket, endpoint)
 
   if(ret == -1){
     if(MC$stop.at.error){
@@ -156,7 +156,7 @@ zmq.bind <- function(socket, endpoint, MC = .pbd_env$ZMQ.MC){
 #' @rdname a1_socket
 #' @export
 zmq.connect <- function(socket, endpoint, MC = .pbd_env$ZMQ.MC){
-  ret <- .Call("R_zmq_connect", socket, endpoint, PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_connect", socket, endpoint)
 
   if(ret == -1){
     if(MC$stop.at.error){
@@ -177,7 +177,7 @@ zmq.connect <- function(socket, endpoint, MC = .pbd_env$ZMQ.MC){
 #' @rdname a1_socket
 #' @export
 zmq.disconnect <- function(socket, endpoint, MC = .pbd_env$ZMQ.MC){
-  ret <- .Call("R_zmq_disconnect", socket, endpoint, PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_disconnect", socket, endpoint)
 
   if(ret == -1){
     if(MC$stop.at.error){
@@ -206,8 +206,8 @@ zmq.setsockopt <- function(socket, option.name, option.value, MC = .pbd_env$ZMQ.
     stop("Type of option.value is not implemented")
   }
 
-  ret <- .Call("R_zmq_setsockopt", socket, option.name, option.value,
-               option.type, PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_setsockopt", socket, option.name, option.value,
+               option.type)
 
   if(ret == -1){
     if(MC$stop.at.error){
@@ -234,8 +234,8 @@ zmq.getsockopt <- function(socket, option.name, option.value, MC = .pbd_env$ZMQ.
     stop("Type of option.value is not implemented")
   }
 
-  ret <- .Call("R_zmq_getsockopt", socket, option.name, option.value,
-               option.type, PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_getsockopt", socket, option.name, option.value,
+               option.type)
 
   if(ret == -1){
     if(MC$stop.at.error){

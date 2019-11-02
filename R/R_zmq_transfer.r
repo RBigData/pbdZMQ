@@ -120,8 +120,8 @@ zmq.sendfile <- function(port, filename, verbose=FALSE,
   if (type == .pbd_env$ZMQ.ST$REQ)
     receive.socket(socket)
     
-    ret <- .Call("R_zmq_send_file", socket, filename, as.integer(verbose),
-      filesize, as.integer(flags), as.integer(forcebin), type, PACKAGE="pbdZMQ")
+    ret <- call_here("R_zmq_send_file", socket, filename, as.integer(verbose),
+      filesize, as.integer(flags), as.integer(forcebin), type)
   
   if (socket.close || ctx.destroy)
     zmq.close(socket)
@@ -176,8 +176,8 @@ zmq.recvfile <- function(port, endpoint, filename, verbose=FALSE,
   if (type == .pbd_env$ZMQ.ST$REP)
     send.socket(socket, NULL)
   
-  ret <- .Call("R_zmq_recv_file", socket, filename, as.integer(verbose),
-    filesize, as.integer(flags), as.integer(forcebin), type, PACKAGE="pbdZMQ")
+  ret <- call_here("R_zmq_recv_file", socket, filename, as.integer(verbose),
+    filesize, as.integer(flags), as.integer(forcebin), type)
 
   if (socket.close || ctx.destroy)
     zmq.close(socket)

@@ -40,18 +40,16 @@
 NULL
 
 
-
 #' @rdname xx_utility
 #' @export
 zmq.strerror <- function(errno){
-  .Call("R_zmq_strerror", as.integer(errno[1]), PACKAGE = "pbdZMQ")
+  call_here("R_zmq_strerror", as.integer(errno[1]))
 }
 
 
 #' @rdname xx_utility
 #' @export
 zmq.version <- function(){
-  ret <- .Call("R_zmq_version", PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_version")
   package_version(ret)
 }
-

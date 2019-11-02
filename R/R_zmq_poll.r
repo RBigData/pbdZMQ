@@ -126,9 +126,8 @@ zmq.poll <- function(socket, type, timeout = -1L, MC = .pbd_env$ZMQ.MC){
 
   zmq.poll.free()
 
-  ret <- .Call("R_zmq_poll", socket, type, as.integer(timeout),
-               as.logical(MC$check.eintr),
-               PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_poll", socket, type, as.integer(timeout),
+               as.logical(MC$check.eintr))
   return(invisible(ret))
 }
 
@@ -136,14 +135,14 @@ zmq.poll <- function(socket, type, timeout = -1L, MC = .pbd_env$ZMQ.MC){
 #' @rdname b3_poll
 #' @export
 zmq.poll.free <- function(){
-  ret <- .Call("R_zmq_poll_free", PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_poll_free")
   invisible(ret)
 }
 
 #' @rdname b3_poll
 #' @export
 zmq.poll.length <- function(){
-  ret <- .Call("R_zmq_poll_length", PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_poll_length")
   invisible(ret)
 }
 
@@ -153,7 +152,6 @@ zmq.poll.get.revents <- function(index = 1L){
   if(index < 1){
     stop("index is a positive interger.")
   }
-  ret <- .Call("R_zmq_poll_get_revents", as.integer(index - 1)[1],
-               PACKAGE = "pbdZMQ")
+  ret <- call_here("R_zmq_poll_get_revents", as.integer(index - 1)[1])
   invisible(ret)
 }

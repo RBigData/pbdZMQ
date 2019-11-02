@@ -54,7 +54,7 @@
 #' @rdname u0_shellexec.wcc
 shellexec.wcc <- function(file, SW.cmd = 7L){
   if(length(file) == 1 && is.character(file)){
-    .Call("shellexec_wcc", file, as.integer(SW.cmd), PACKAGE="pbdZMQ")
+    call_here("shellexec_wcc", file, as.integer(SW.cmd))
   } else{
     stop("file should be a character vector of length 1.")
   }
