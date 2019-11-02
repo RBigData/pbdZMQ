@@ -1,6 +1,6 @@
 Package: pbdZMQ
 Version: 0.3-4
-Date: 2019-07-09
+Date: 2019-07-27
 Title: Programming with Big Data -- Interface to 'ZeroMQ'
 Authors@R: c(person("Wei-Chen", "Chen", role = c("aut", "cre"), email =
         "wccsnow@gmail.com"),
@@ -16,7 +16,8 @@ Authors@R: c(person("Wei-Chen", "Chen", role = c("aut", "cre"), email =
         person("Philipp", "A.", role = "ctb", comment = "Fedora"),
         person("Elliott Sales", "de Andrade", role = "ctb", comment = "sprintf"),
         person("Spencer", "Aiello", role = "ctb", comment = "windows conf"),
-        person("Paul", "Andrey", role = "ctb", comment = "Mac OSX conf")
+        person("Paul", "Andrey", role = "ctb", comment = "Mac OSX conf"),
+        person("Panagiotis", "Cheilaris", role = "ctb", comment = "add serialize version")
 	)
 Depends: R (>= 3.5.0)
 LazyLoad: yes
@@ -34,7 +35,7 @@ Description: 'ZeroMQ' is a well-known library for high-performance
     'rzmq' are also provided.
 SystemRequirements: Linux, Mac OSX, and Windows, or 'ZeroMQ' library >=
         4.0.4. Solaris 10 needs 'ZeroMQ' library 4.0.7 and 'OpenCSW'.
-StagedInstall: FALSE
+StagedInstall: TRUE
 License: GPL-3
 URL: http://r-pbd.org/
 BugReports: https://github.com/snoweye/pbdZMQ/issues
