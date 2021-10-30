@@ -1,6 +1,6 @@
 Package: pbdZMQ
-Version: 0.3-5
-Date: 2021-02-09
+Version: 0.3-6
+Date: 2021-10-25
 Title: Programming with Big Data -- Interface to 'ZeroMQ'
 Authors@R: c(person("Wei-Chen", "Chen", role = c("aut", "cre"), email =
         "wccsnow@gmail.com"),
@@ -21,7 +21,6 @@ Authors@R: c(person("Wei-Chen", "Chen", role = c("aut", "cre"), email =
 	)
 Depends: R (>= 3.5.0)
 LazyLoad: yes
-LazyData: yes
 Copyright: See files AUTHORS, COPYING, COPYING.LESSER, and MAINTAINERS
         in 'pbdZMQ/inst/zmq_copyright/' for the 'ZeroMQ' source files
         in 'src/zmq_src/' which are under GPL-3.
