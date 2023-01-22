@@ -2,7 +2,7 @@
 
 * **License:** [![License](https://img.shields.io/badge/license-GPL%20v3-orange.svg?style=flat)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 * **Download:** [![Download](https://cranlogs.r-pkg.org/badges/pbdZMQ)](https://cran.r-project.org/package=pbdZMQ)
-* **Status:** [![Build Status](https://travis-ci.org/snoweye/pbdZMQ.png)](https://travis-ci.org/snoweye/pbdZMQ) [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true)](https://ci.appveyor.com/project/snoweye/pbdZMQ)
+* **Status:** [![Build Status](https://gitlab.com/snoweye/pbdZMQ/badges/master/pipeline.svg)](https://gitlab.com/snoweye/pbdZMQ/-/commits/master) [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true)](https://ci.appveyor.com/project/snoweye/pbdZMQ)
 * **Author:** See section below.
 
 
@@ -71,7 +71,7 @@ pbdZMQ requires
 * libzmq >= 4.0.4.
 * Solaris 10 requiring external libzmq 4.0.7 and OpenCSW.
 
-A distribution of libzmq is shipped with pbdZMQ for convenience.  However, if you already have a system installation of ZeroMQ, then it is simple to use that with pbdZMQ.  Full details on installation and troubleshooting can be found in the package vignette, located at `inst/doc/pbdMPI-guide.pdf` of the pbdZMQ source tree.
+A distribution of libzmq is shipped with pbdZMQ for convenience.  However, if you already have a system installation of ZeroMQ, then it is simple to use that with pbdZMQ.  Full details on installation and troubleshooting can be found in the package vignette, located at `inst/doc/pbdZMQ-guide.pdf` of the pbdZMQ source tree.
 
 The package can be installed from the CRAN via the usual `install.packages("pbdZMQ")`, or via the devtools package:
 
@@ -97,20 +97,23 @@ When mentioning the pbdZMQ, please cite:
 
 ## Authors
 
-pbdMPI is authored and maintained by:
+pbdZMQ is authored and maintained by:
 
 * Wei-Chen Chen
 * Drew Schmidt
 * Christian Heckendorf
 * George Ostrouchov
 
-With additional contributions from:
+With additional contributions and authors from:
 
 * Whit Armstrong (some functions are modified from rzmq for backwards compatibility)
 * Brian Ripley (C code of shellexec)
 * The R Core team (some functions are modified from the R source code)
+* Philipp A. (Fedora")
 * Elliott Sales de Andrade (sprintf version underflow)
 * Spencer Aiello (windows conf spacing)
 * Paul Andrey (Mac OSX conf)
+* Panagiotis Cheilaris (serialize version)
+* ZeroMQ Authors (source files in 'src/zmq_src/')
 
 For the distribution of ZeroMQ that is shipped with pbdZMQ, you can find details of authorship and copyright in `inst/zmq_copyright/` of the pbdZMQ source tree, or under `zmq_copyright/` of a binary installation of pbdZMQ.
