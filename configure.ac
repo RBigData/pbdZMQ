@@ -52,7 +52,7 @@ fi
 dnl Find system ZMQ header and share library.
 SYSTEM_ZMQ_INCLUDEDIR=""
 SYSTEM_ZMQ_LIBDIR=""
-if test "X$GET_PKG_CONFIG" = "Xyes" -a "X$GET_SYSTEM_ZMQ" = "Xyes" -a "X$ENABLE_INTERNAL_ZMQ" = "Xno" ; then
+if test "X$GET_PKG_CONFIG" = "Xyes" && test "X$GET_SYSTEM_ZMQ" = "Xyes" && test "X$ENABLE_INTERNAL_ZMQ" = "Xno" ; then
   SYSTEM_ZMQ_INCLUDEDIR=`$PKG_CONFIG --variable=includedir libzmq`
   SYSTEM_ZMQ_LIBDIR=`$PKG_CONFIG --variable=libdir libzmq`
 fi
@@ -73,7 +73,7 @@ dnl I decide to the order: system, internal, external.
 dnl However, I need to test the order in backward.
 ZMQ_INCLUDE=""
 ZMQ_LDFLAGS=""
-if test "X$EXTERNAL_ZMQ_INCLUDE" != "X" -a "X$EXTERNAL_ZMQ_LDFLAGS" != "X" ; then
+if test "X$EXTERNAL_ZMQ_INCLUDE" != "X" && test "X$EXTERNAL_ZMQ_LDFLAGS" != "X" ; then
   ZMQ_INCLUDE="${EXTERNAL_ZMQ_INCLUDE}"
   ZMQ_LDFLAGS="${EXTERNAL_ZMQ_LDFLAGS}"
   ENABLE_INTERNAL_ZMQ="no"
@@ -82,7 +82,7 @@ else
     ZMQ_INCLUDE="-I${INTERNAL_ZMQ_INCLUDEDIR}"
     ZMQ_LDFLAGS="-L${INTERNAL_ZMQ_LIBDIR} -lzmq"
   else
-    if test "X$SYSTEM_ZMQ_INCLUDEDIR" != "X" -a "X$SYSTEM_ZMQ_LIBDIR" != "X" ; then
+    if test "X$SYSTEM_ZMQ_INCLUDEDIR" != "X" && test "X$SYSTEM_ZMQ_LIBDIR" != "X" ; then
       ZMQ_INCLUDE="-I${SYSTEM_ZMQ_INCLUDEDIR}"
       ZMQ_LDFLAGS="-L${SYSTEM_ZMQ_LIBDIR} -lzmq"
     else
@@ -93,7 +93,7 @@ else
 fi
 
 dnl Set EXT_LIBS if external ZeroMQ library is provided.
-if test "$ZMQ_INCLUDE" != "-I./zmqsrc/include" -a "$ZMQ_LDFLAGS" != "-L./ -lzmq" ; then
+if test "$ZMQ_INCLUDE" != "-I./zmqsrc/include" && test "$ZMQ_LDFLAGS" != "-L./ -lzmq" ; then
   EXT_LIBS=""
 else
   EXT_LIBS="\$(R_ZMQ)"

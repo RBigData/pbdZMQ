@@ -1,3 +1,12 @@
+2025-04-12: Ver. 0.3-14
+  * Remove bashism in configure.ac and configure.
+
+2024-09-15: Ver 0.3-13
+  * Fix a LTO problem.
+
+2024-09-03: Ver 0.3-12
+  * Fix non-API call to R: 'LEVELS'.
+
 2024-01-13: Ver 0.3-11
   * Fix C++ runtime library loaded and avoid clang++ linking problem in
     MacOS ARM64.
